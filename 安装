@@ -1,0 +1,29 @@
+yum list | grep docker
+
+cat >/etc/yum.repos.d/docker.repo <<-EOF
+[dockerrepo]
+name=Docker Repository
+baseurl=https://yum.dockerproject.org/repo/main/centos/7
+enabled=1
+gpgcheck=1
+gpgkey=https://yum.dockerproject.org/gpg
+EOF
+
+ll /etc/yum.repos.d/
+
+yum list | grep docker
+
+yum install -y docker-selinux
+
+yum install -y docker-engine
+
+yum list installed | grep docker
+
+docker version
+
+systemctl start docker
+
+docker search nginx
+
+docker rmi ed9c93747fe1 #删除image
+
