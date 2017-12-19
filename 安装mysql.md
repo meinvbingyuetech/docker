@@ -10,6 +10,9 @@ docker pull registry.docker-cn.com/library/mysql		// 拉取最新版本
 # 列出本地镜像
 docker images
 
+# 删除镜像
+docker rmi hub.c.163.com/nce2/mysql:5.6
+
 # 创建配置文件
 mkdir -p /data/mysql/conf
 cd /data/mysql/conf
