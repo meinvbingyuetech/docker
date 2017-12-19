@@ -28,7 +28,7 @@ docker run --name mysql-slave2 -d -P hub.c.163.com/nce2/mysql:5.6
 docker run --name mysql-slave3 -d -P hub.c.163.com/nce2/mysql:5.6
 
 # 查看容器启动情况
-docker ps
+docker ps -a
 
 # 删除容器
 docker rm mysql56
