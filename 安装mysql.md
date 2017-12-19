@@ -1,0 +1,37 @@
+```
+# 查找Docker Hub上的mysql镜像
+docker search mysql
+
+# 拉取镜像
+docker pull hub.c.163.com/nce2/mysql:5.6			// 网易蜂巢
+docker pull registry.docker-cn.com/library/mysql:5.6		// Docker中国
+docker pull registry.docker-cn.com/library/mysql		// 拉取最新版本
+
+# 列出本地镜像
+docker images
+
+# 创建配置文件
+mkdir -p /data/mysql/conf
+cd /data/mysql/conf
+touch my.cnf
+
+# 启动
+docker run -p 3306:3306 --name mysql56 -v /data/mysql/conf/my.cnf:/etc/mysql/my.cnf -v /data/mysql/logs:/logs -v /data/mysql/data:/mysql_data -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
+
+// 创建mysql5.6容器 1master+3个slave
+docker run --name mysql-master -d -P hub.c.163.com/nce2/mysql:5.6
+docker run --name mysql-slave1 -d -P hub.c.163.com/nce2/mysql:5.6
+docker run --name mysql-slave2 -d -P hub.c.163.com/nce2/mysql:5.6
+docker run --name mysql-slave3 -d -P hub.c.163.com/nce2/mysql:5.6
+
+# 查看容器启动情况
+docker ps
+
+# 删除容器
+docker rm mysql56
+
+# 登录mysql
+docker exec -it mysql56 bash   // mysql56是启动时候指定的名称
+
+mysql -uroot -p
+```
