@@ -10,10 +10,6 @@ docker run mysql
 
 docker search nginx
 
-## 移除软件包
-
-yum -y remove docker-engine.x86_64
-
 ## 删除image
 
 docker rmi ed9c93747fe1 
@@ -22,3 +18,7 @@ docker rmi ed9c93747fe1
 ## 删除所有镜像、容器和组
 
 rm -rf /var/lib/docker
+
+## 卸载docker
+ 
+yum -y remove docker-engine.x86_64
