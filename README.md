@@ -10,8 +10,8 @@ docker images
 
 
 ```
-docker rmi 镜像ID	  删除镜像
-docker rmi -f 镜像ID  强制删除镜像
+docker rmi 镜像ID	        删除镜像
+docker rmi -f 镜像ID      强制删除镜像
 docker rmi nginx:1.13.7  （REPOSITORY + TAG）
 
 docker rmi $(docker images -q)  删除所有image
@@ -46,38 +46,37 @@ systemctl stop docker
 systemctl start docker 
 ```
 
-
-
-## 删除image
-
-docker rmi ed9c93747fe1 
+```
+docker rmi ed9c93747fe1   删除image
 
 ## 上面的命令不会删除镜像、容器，卷组和用户自配置文件。
 ## 删除所有镜像、容器和组
 
 rm -rf /var/lib/docker
+```
 
-## 卸载docker
+```
+卸载docker
  
 yum -y remove docker-engine.x86_64
+```
 
+```
 docker inspect 容器ID或容器名 |grep '"IPAddress"'
+```
 
-172.17.0.3
-
+```
 docker run -t -i -p 80:80 nginx /bin/bash
 docker run -t -i -p 80:80 nginx:latest /bin/bash
 docker run -t -i -p 80:80 nginx:1.12.2 /bin/bash
+```
 
+```
 docker run --name nginx1.13 -d -p 80:80 -v /web:/usr/share/nginx/html:ro -d nginx
 
 docker run -p 9000:9000 --name  php-fpm-7.1 -d php:7.1-fpm
+```
 
-
-docker容器中安装vim
-apt-get update
-apt-get install vim
-
-
+```
 docker exec -it 容器ID /bin/bash
-
+```
