@@ -78,5 +78,9 @@ docker run -p 9000:9000 --name  php-fpm-7.1 -d php:7.1-fpm
 ```
 
 ```
-docker exec -it 容器ID /bin/bash
+运行 容器命令
+docker exec -it 4b7 php -m
+ 
+进入 容器
+docker exec -it 4b7 /bin/bash
 ```
