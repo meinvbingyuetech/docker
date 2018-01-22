@@ -86,8 +86,8 @@ docker exec -it 4b7 /bin/bash
 ```
  
 ```
+docker commit 4b7 php-ext
+
 4b7 可以用 docker ps 获取当前的容器ID
 php-ext 是你要重新命名的新镜像名称
-
-docker commit 4b7 php-ext
 ```
