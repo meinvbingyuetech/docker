@@ -8,13 +8,19 @@ docker pull nginx:1.12.2
 docker images		
 ```
 
-
+- 删除镜像
 ```
+docker images
+
 docker rmi 镜像ID	        删除镜像
 docker rmi -f 镜像ID      强制删除镜像
 docker rmi nginx:1.13.7  （REPOSITORY + TAG）
 
 docker rmi $(docker images -q)  删除所有image
+
+docker rmi hub.c.163.com/nce2/mysql:5.6
+
+docker rmi registry.docker-cn.com/library/nginx:latest
 ```
 
 ```
