@@ -1,3 +1,15 @@
+- 镜像加速
+  - vim /etc/docker/daemon.json
+```
+{
+    "registry-mirrors": ["https://grifbizc.mirror.aliyuncs.com"]
+}
+```
+  - systemctl restart docker
+
+----
+
+
 ```
 docker search mysql
 
