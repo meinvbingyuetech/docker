@@ -40,6 +40,9 @@ docker stop Name/ID
 docker kill Name/ID
 docker rm Name/ID
 
+如果要重新载入 NGINX 可以使用以下命令发送 HUP 信号到容器
+docker kill -s HUP container-name
+
 停止所有的container
 docker stop $(docker ps -a -q)
 删除所有container
