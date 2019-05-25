@@ -75,6 +75,8 @@ docker inspect 容器ID或容器名 |grep '"IPAddress"'
 docker run -t -i -p 80:80 nginx /bin/bash
 docker run -t -i -p 80:80 nginx:latest /bin/bash
 docker run -t -i -p 80:80 nginx:1.12.2 /bin/bash
+
+注意第一个80指的是宿主机的端口，第二个80指的是容器内的端口
 ```
 
 ```
