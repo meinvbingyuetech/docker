@@ -1,10 +1,13 @@
 - 镜像加速
+  - 获取阿里云加速地址
+    * https://cr.console.aliyun.com/undefined/instances/mirrors?accounttraceid=10730733-93e0-4aa0-8db5-071b26809dc6
   - vim /etc/docker/daemon.json
   ```
   {
       "registry-mirrors": ["https://grifbizc.mirror.aliyuncs.com"]
   }
   ```
+   - systemctl daemon-reload
    - systemctl restart docker
 
 ----
