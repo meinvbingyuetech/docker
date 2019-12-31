@@ -21,6 +21,22 @@ systemctl stop docker
  
 ```
 
+----
+
+```
+
+docker run -itd --name redis -p 6379:6379 redis
+docker run -itd --name php5.6 php:5.6
+docker run -itd --name php -v /home/www:/www php
+                 容器名 ； 挂载宿主机/home/www目录到容器目录/www ；镜像名
+
+
+docker exec -it redis /bin/bash
+docker exec -it php /bin/bash
+docker exec -it php5.6 /bin/bash
+                容器名
+```
+
 ### 大多数拉取下来容器进去后都是要用apt-get，不是用yum
 
 ```
