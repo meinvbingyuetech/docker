@@ -7,7 +7,11 @@ docker pull php:7.2.1-fpm
  
 - 安装
 ```
-docker run -p 9000:9000 --name php-7.2.1-fpm -v /data/www:/data/www -v /configs:/usr/local/etc/php -v /logs:/phplogs -d php:7.2.1-fpm
+docker run -d -p 9000:9000 --name php-7.2.1-fpm \
+-v /data/www:/data/www \
+-v /configs:/usr/local/etc/php \
+-v /logs:/phplogs \
+php:7.2.1-fpm
 ```
 
 -  安装扩展
