@@ -24,7 +24,12 @@ docker-php-ext-install  mysqli
  
 -  与mysql容器通信
 ```
-docker run --link mysql56 -e MYSQL_ROOT_PASSWORD=123456 -p 9000:9000 --name php-7.2.1-fpm -v /data/www:/data/www -v /configs:/usr/local/etc/php -v /logs:/phplogs -d php:7.2.1-fpm
+docker run -d -p 9000:9000 --name php-7.2.1-fpm \
+-v /data/www:/data/www \
+-v /configs:/usr/local/etc/php \
+-v /logs:/phplogs \
+--link mysql56 -e MYSQL_ROOT_PASSWORD=123456 \
+php:7.2.1-fpm
 
 mysql56 是 mysql容器启动时的命名 --name
 ```
