@@ -19,7 +19,11 @@ docker run --name nginx1.12.2 -p 80:80 -v /data/www:/data/www:ro -d nginx:1.12.2
 docker run --name nginx1.12.2 -p 80:80 -v /data/www:/data/www:ro -v /logs:/var/log/nginx -d nginx:1.12.2
 
 # 执行配置文件 （采用这个，要先创建 /configs/nginx 并创建 default.conf 文件）
-docker run --name nginx1.13 -p 80:80 -v /data/www:/data/www:ro -v /logs:/var/log/nginx -v /configs/nginx:/etc/nginx/conf.d:ro -d nginx:1.13
+docker run -d --name nginx -p 80:80 \
+-v /home/www:/data/www:ro \
+-v /configs/nginx:/etc/nginx/conf.d:ro  \
+-v /logs:/var/log/nginx \
+nginx:1.13
 
 /data/www:/data/www:ro -> ro 十分重要，意思是只读权限，如果不加，则会启动不成功
  
