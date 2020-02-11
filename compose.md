@@ -24,6 +24,12 @@ docker-compose --version
 docker-compose --help
 ```
 
+- 启动运用程序
+```
+docker-compose up
+docker-compose up -d  #后台执行
+```
+
 ---- 
 
 ```
