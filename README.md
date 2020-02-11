@@ -244,6 +244,29 @@ docker commit -a "meinvbingyue" -m "开发环境：php+composer+git" a404c6c174a
 
 ```
 
+- 推送仓库
+```
+
+cd /registry/lexin-crm-server
+
+sudo docker login --username=100010352459 ccr.ccs.tencentyun.com
+
+sudo docker build -t ccr.ccs.tencentyun.com/lexin/lexin-crm:0.4.282 . 
+
+sudo docker push ccr.ccs.tencentyun.com/lexin/lexin-crm:0.4.282
+
+---------------------------
+
+docker login ccr.ccs.tencentyun.com/meinvbingyue/test -u 100002595837 -p yuxiyu110380
+
+docker tag app ccr.ccs.tencentyun.com/meinvbingyue/test:app-v1
+docker tag dev-app:v1 ccr.ccs.tencentyun.com/meinvbingyue/test:app-v1
+		   REPOSITORY:TAG
+		   ImageId
+
+docker push ccr.ccs.tencentyun.com/meinvbingyue/test:app-v1
+```
+
 - 卸载docker
 ```
 yum -y remove docker-engine.x86_64
