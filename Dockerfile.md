@@ -158,6 +158,7 @@
 		libpcre3-dev \
 
 	    # 官方 PHP 镜像内置命令，安装 PHP 依赖
+	    # 如果依赖包需要配置参数则通过 docker-php-ext-configure  命令
 	    && docker-php-ext-install \
 		mcrypt \
 		mbstring \
@@ -176,6 +177,7 @@
 
 	# 开启 URL 重写模块
 	# 配置默认放置 App 的目录
+	# Apache 默认的文档目录为 /var/www/html ，将 /app 定义为 Laravel 应用目录，而 Laravel 的项目入口文件位于 /app/public 。为了方便管理，把 /var/www/html  软链接到 /app/public
 	RUN a2enmod rewrite \
 	    && mkdir -p /app \
 	    && rm -fr /var/www/html \
@@ -184,6 +186,9 @@
 	WORKDIR /app
 
 	# 预先加载 Composer 包依赖，优化 Docker 构建镜像的速度
+	# 1.复制 composer.json  和 composer.lock  到 /app，composer.lock  会锁定 Composer 加载的依赖包版本号，防止由于第三方依赖包的版本不同导致的应用运行错误
+	# 2.--no-autoloader  为了阻止 composer install  之后进行的自动加载，防止由于代码不全导致的自动加载报错
+	# 3.--no-scripts  为了阻止 composer install  运行时 composer.json  所定义的脚本，同样是防止代码不全导致的加载错误问题
 	COPY ./composer.json /app/
 	COPY ./composer.lock /app/
 	RUN composer install  --no-autoloader --no-scripts
